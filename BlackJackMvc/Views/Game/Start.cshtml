@@ -1,0 +1,116 @@
+﻿@model BlackJackMvc.ViewModels.GameViewModel
+    <partial name="_CurrentWallet" />
+
+    <div class="body-div">
+        <center>
+            <div>
+                <h2 style="position:relative;top:-50px; color:white">@Model.Player.Name vs @Model.Dealer.Name</h2>
+            </div>
+
+            <div style="margin-bottom:100px">
+
+
+                @if (Model.PlayerDone == false)
+                {
+                    <div>
+                        <img src="https://andrewthamcc.github.io/blackjack2.0/assets/facedown.png" alt="face down card" height="200" width="150" />
+                        <img src="https://andrewthamcc.github.io/blackjack2.0/assets/facedown.png" alt="face down card" height="200" width="150" />
+                    </div>
+
+                }
+
+                @if (Model.PlayerDone == true)
+                {
+                    <div id="showDealer">
+                        <partial name="_ShowDealer" />
+                    </div>
+                }
+
+                @if (Model.PlayerDone)
+                {
+                    @if (Model.Dealer.Score > 21)
+                    {
+                        <h4 style="color:white">@Model.Dealer.Name Busted!!</h4>
+                    }
+                }
+
+            </div>
+
+
+            <h2 style="color:white; position:relative;top:-50px">@Model.Result</h2>
+
+
+
+            @foreach (Card card1 in Model.Player.Hand)
+            {
+                <img src="https://deckofcardsapi.com/static/img/@(card1.ApiNum)@(card1.ApiSuit).png" alt="card" height="200" width="150" />
+            }
+
+            <h3 style="color:white">@Model.Player.Name's score is: @Model.Player.Score</h3>
+           
+
+            @if (Model.PlayerDone == true)
+            {
+                <div>
+                    <form>
+                        <label for="bet-box" style="font-weight:bold; color:white">Enter your bet to Continue:</label>
+                        <strong><input type="text" id="bet-box" name="betInput" required /></strong>
+                        <button asp-controller="Game" asp-action="Continue" style="color: white; background: #4800ff; border: none; border-radius: 20px; padding: 5px; border-block-color: black" type="submit">Continue</button>
+                        <button asp-controller="Home" asp-action="Index" style="color: white; background: #0026ff; border: none; border-radius: 20px; padding: 5px; border-block-color: black" type="submit" formnovalidate>Return To Start</button>
+
+                    </form>
+
+                </div>
+            }
+
+
+
+            <div>
+                <form>
+                    @if (Model.PlayerDone == false && Model.Player.Score < 22)
+                    {
+                        @if (Model.Player.Score <= 21)
+                        {
+                            <button asp-controller="Game" asp-action="Hit" class="btn-hit" type="submit" style="color: white; background: #4800ff; position: relative; left: -350px; top: -200px; border: none; border-radius: 20px; padding: 10px; font-size: 50px">Hit</button>
+                        }
+                        <button asp-controller="Game" asp-action="Stand" class="btn-stand" type="submit" style="color: white; background: #4800ff; position: relative; right: -350px; top: -200px; border: none; border-radius: 20px; padding: 10px; font-size: 50px ">Stand</button>
+
+
+                    }
+
+
+                </form>
+            </div>
+
+            @if (Model.Player.Score > 21)
+            {
+                <div>
+                    <form>
+                        <div style="margin-bottom:10px">
+                            <button asp-controller="Home" asp-action="Index" style="color: white; background: red; border: none; border-radius: 20px; padding: 5px; border-block-color: black " formnovalidate>BUST, YOU LOSE: Click here to return home</button>
+                        </div>
+
+                        <label for="bet-box" style="color:white;font-weight:bold;">Or Enter your bet to Continue:</label>
+                        <strong><input type="text" id="bet-box" name="betInput" required /></strong>
+                        <button asp-controller="Game" asp-action="Continue" style="color: black; background: white; border: none; border-radius: 20px; padding: 5px; border-block-color: black;">Continue</button>
+
+                    </form>
+
+                </div>
+            }
+
+
+
+
+        </center>
+    </div>
+    
+
+<style>
+    body{
+        background-image: url('https://media.istockphoto.com/vectors/poker-table-background-in-green-color-vector-id1218355494?k=20&m=1218355494&s=612x612&w=0&h=7izk2bQU_LDnKLLLbwAolAo4kwUmcwr_mo8_Vr7955w=');
+        background-size: cover;
+        width:100%;
+    }
+    
+</style>

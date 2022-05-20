@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewData["Title"] = "Black Jack";
+}
+<div class="allButFooter">
+    
+
+    <div>
+        <form>
+            <center>
+                <label for="bet-box" style="font-weight: bold; color: white">Enter your bet:</label>
+                <strong><input type="number" id="bet-box" name="betInput" max="100" required /></strong>
+            </center>
+
+            <center>
+                <label for="name-box" style="font-weight:bold; color:white">Enter your name:</label>
+                <strong><input type="text" id="name-box" name="nameInput" required /></strong>
+            </center>
+
+            <center>
+                <button asp-controller="Game" asp-action="Start" class="btn-primary" style="font-size: 20px; height: 50px; width: 200px; margin-top: 20px; border: none; border-radius: 20px; padding: 5px; border-block-color: black">Start Game</button>
+            </center>
+
+        </form>
+    </div>
+</div>
+
+
+
+
+
+<style>
+    body {
+        background-image: url('https://wallpaperaccess.com/full/2434392.png');
+        
+    }   
+    form{
+        position:relative;
+        top:630px;
+        left:500px;
+        height:200px;
+        width:200px;
+        
+        
+    }
+    .allButFooter{
+        min-height: calc(100vh - 40px);
+    }
+</style>

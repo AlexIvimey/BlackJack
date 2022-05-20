@@ -1,0 +1,18 @@
+﻿@model BlackJackMvc.ViewModels.GameViewModel
+
+
+
+<div style="margin-bottom:100px" >
+    @foreach (Card card1 in Model.Dealer.Hand)
+    {
+        <img src="https://deckofcardsapi.com/static/img/@(card1.ApiNum)@(card1.ApiSuit).png" alt="card" height="200" width="150" style="margin-bottom:10px"/>
+    }
+
+    <h3 style="color:white">@Model.Dealer.Name's score is: @Model.Dealer.Score</h3>
+</div>
+
+    
+
+
+
+
