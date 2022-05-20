@@ -8,6 +8,7 @@ namespace BlackJackMvc.ViewModels
 {
     public class GameViewModel
     {
+        //Adding properties
         public Player Player { get; set; }
         public Player Dealer { get; set; }
         public Deck Deck { get; set; }
