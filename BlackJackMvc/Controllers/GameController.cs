@@ -98,7 +98,7 @@ namespace BlackJackMvc.Controllers
                 }
             }
 
-            
+
             return View("Start", gameViewModel);
         }
 

@@ -39,7 +39,12 @@
 
 
             <h2 style="color:white; position:relative;top:-50px">@Model.Result</h2>
-
+            @if(Model.Player.Wallet < 5 && Model.PlayerDone == true)
+            {
+                <form>
+                    <h2 style="color:white; position:relative; top:-60px">Looks like your out of money, <button type="submit" asp-controller="Home" asp-action="Index" style="color:white; background:red; border-radius:20px; padding:5px; border-block-color:black">Return Home</button></h2>
+                </form>
+            }
 
 
             @foreach (Card card1 in Model.Player.Hand)
@@ -50,7 +55,7 @@
             <h3 style="color:white">@Model.Player.Name's score is: @Model.Player.Score</h3>
            
 
-            @if (Model.PlayerDone == true)
+            @if (Model.PlayerDone == true && Model.Player.Wallet > 4)
             {
                 <div style="margin-top: 20px">
                     <form>
@@ -104,7 +109,7 @@
                         </div>
 
 
-                        <strong><input type="text" id="bet-box2" name="betInput" hidden required/></strong>
+                        <strong><input type="text" id="bet-box2" name="betInput" hidden required /></strong>
 
 
                         <label for="bet-box1" style="font-weight:bold; color:white">Bet 25</label>
@@ -112,14 +117,22 @@
                             <img src="~/images/518-5181524_red-poker-chip-png-transparent-png.png" style="height:100px; width:100px" />
                         </button>
                         <label for="bet-box2" style="font-weight:bold; color:white">Bet 50</label>
-                        <button type="button" onclick="betFunction2()"style="background: transparent; border: none">
+                        <button type="button" onclick="betFunction2()" style="background: transparent; border: none">
                             <img src="~/images/107588.png" style="height:100px; width:100px" />
                         </button>
                         <label for="bet-box3" style="font-weight:bold; color:white">Bet 100</label>
-                        <button type="button" onclick="betFunction3()"style="background: transparent; border: none">
+                        <button type="button" onclick="betFunction3()" style="background: transparent; border: none">
                             <img src="~/images/1254315.png" style="height:100px; width:100px" />
                         </button>
-                        <button asp-controller="Game" asp-action="Continue" style="color: black; background: white; border: none; border-radius: 20px; padding: 5px; border-block-color: black;">Continue</button>
+                        @if (Model.Player.Wallet > 4)
+                        {
+                            <button asp-controller="Game" asp-action="Continue" style="color: black; background: white; border: none; border-radius: 20px; padding: 5px; border-block-color: black;">Continue</button>
+                        }
+                        @if(Model.Player.Wallet < 4)
+                        {
+                            <h3 style="color:white">No money left, Return Home</h3>
+                        }
+
 
                     </form>
 
