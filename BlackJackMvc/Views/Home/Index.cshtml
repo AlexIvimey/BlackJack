@@ -5,16 +5,21 @@
 <div class="allButFooter">
     
 
-    <div>
-        <form>
-            <center>
-                <label for="bet-box" style="font-weight: bold; color: white">Enter your bet:</label>
-                <strong><input type="number" id="bet-box" name="betInput" max="100" required /></strong>
-            </center>
+    <div >
+        <form >
+            <strong><input type="text" id="bet-box" name="betInput" hidden required/></strong>
+
+            <label style="font-weight:bold; color:white">Bet 25</label>
+            <input type="image" src="~/images/518-5181524_red-poker-chip-png-transparent-png.png" style="height:100px; width:100px" onclick="betFunction1()"/>
+            <label style="font-weight:bold; color:white">Bet 50</label>
+            <input type="image" src="~/images/107588.png" style="height:100px; width:100px" onclick="betFunction2()"/>
+            <label style="font-weight:bold; color:white">Bet 100</label>
+            <input type="image" src="~/images/1254315.png" style="height:100px; width:100px" onclick="betFunction3()"/>
+
 
             <center>
                 <label for="name-box" style="font-weight:bold; color:white">Enter your name:</label>
-                <strong><input type="text" id="name-box" name="nameInput" required /></strong>
+                <strong><input type="text" id="name-box" name="nameInput" required/></strong>
             </center>
 
             <center>
@@ -29,6 +34,19 @@
 
 
 
+<script>
+    function betFunction1() {
+        document.getElementById("bet-box").value = "25";
+    }
+    function betFunction2() {
+        document.getElementById("bet-box").value = "50";
+    }
+    function betFunction3() {
+        document.getElementById("bet-box").value = "100";
+    }
+</script>
+
+
 <style>
     body {
         background-image: url('https://wallpaperaccess.com/full/2434392.png');
@@ -36,8 +54,7 @@
     }   
     form{
         position:relative;
-        top:630px;
-        left:500px;
+        top:500px;
         height:200px;
         width:200px;
         

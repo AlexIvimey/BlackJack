@@ -52,12 +52,24 @@
 
             @if (Model.PlayerDone == true)
             {
-                <div>
+                <div style="margin-top: 20px">
                     <form>
-                        <label for="bet-box" style="font-weight:bold; color:white">Enter your bet to Continue:</label>
-                        <strong><input type="text" id="bet-box" name="betInput" required /></strong>
+                        <strong><input type="text" id="bet-box2" name="betInput"hidden required/></strong>
+
+                        <label style="font-weight:bold; color:white">Bet 25</label>
+                        <button type="button" onclick="betFunction1()"style="background: transparent; border: none">
+                            <img src="~/images/518-5181524_red-poker-chip-png-transparent-png.png" style="height:100px; width:100px; background:none"/>
+                        </button> 
+                        <label style="font-weight:bold; color:white">Bet 50</label>
+                        <button type="button" onclick="betFunction2()"style="background: transparent; border: none"> 
+                            <img src="~/images/107588.png" style="height:100px; width:100px"/>
+                        </button>
+                        <label style="font-weight:bold; color:white">Bet 100</label>
+                        <button type="button"onclick="betFunction3()"style="background: transparent; border: none">
+                            <img src="~/images/1254315.png" style="height:100px; width:100px"/> 
+                        </button>
                         <button asp-controller="Game" asp-action="Continue" style="color: white; background: #4800ff; border: none; border-radius: 20px; padding: 5px; border-block-color: black" type="submit">Continue</button>
-                        <button asp-controller="Home" asp-action="Index" style="color: white; background: #0026ff; border: none; border-radius: 20px; padding: 5px; border-block-color: black" type="submit" formnovalidate>Return To Start</button>
+                        <button asp-controller="Home" asp-action="Index" style="color: white; background: #0026ff; border: none; border-radius: 20px; padding: 5px; border-block-color: black; margin-top:10px" type="submit" formnovalidate>Return To Start</button>
 
                     </form>
 
@@ -91,8 +103,22 @@
                             <button asp-controller="Home" asp-action="Index" style="color: white; background: red; border: none; border-radius: 20px; padding: 5px; border-block-color: black " formnovalidate>BUST, YOU LOSE: Click here to return home</button>
                         </div>
 
-                        <label for="bet-box" style="color:white;font-weight:bold;">Or Enter your bet to Continue:</label>
-                        <strong><input type="text" id="bet-box" name="betInput" required /></strong>
+
+                        <strong><input type="text" id="bet-box2" name="betInput" hidden required/></strong>
+
+
+                        <label for="bet-box1" style="font-weight:bold; color:white">Bet 25</label>
+                        <button type="button" onclick="betFunction1()" style="background: transparent; border: none">
+                            <img src="~/images/518-5181524_red-poker-chip-png-transparent-png.png" style="height:100px; width:100px" />
+                        </button>
+                        <label for="bet-box2" style="font-weight:bold; color:white">Bet 50</label>
+                        <button type="button" onclick="betFunction2()"style="background: transparent; border: none">
+                            <img src="~/images/107588.png" style="height:100px; width:100px" />
+                        </button>
+                        <label for="bet-box3" style="font-weight:bold; color:white">Bet 100</label>
+                        <button type="button" onclick="betFunction3()"style="background: transparent; border: none">
+                            <img src="~/images/1254315.png" style="height:100px; width:100px" />
+                        </button>
                         <button asp-controller="Game" asp-action="Continue" style="color: black; background: white; border: none; border-radius: 20px; padding: 5px; border-block-color: black;">Continue</button>
 
                     </form>
@@ -115,3 +141,17 @@
     }
     
 </style>
+
+<script>
+    function betFunction1() {
+        
+            document.getElementById("bet-box2").value= "25";
+        
+    }
+    function betFunction2() {
+        document.getElementById("bet-box2").value = "50";
+    }
+    function betFunction3() {
+        document.getElementById("bet-box2").value = "100";
+    }
+</script>

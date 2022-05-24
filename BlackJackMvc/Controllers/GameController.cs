@@ -15,14 +15,15 @@ namespace BlackJackMvc.Controllers
             {
                 Player = new Player(nameInput)
                 {
-                    BetAmount = betInput
 
+                    
                 },
 
                 Dealer = new Player("The dealer"),
                 Deck = new Deck()
             };
-            gameViewModel.Player.Wallet -= gameViewModel.Player.BetAmount;
+            gameViewModel.Player.BetAmount = betInput;
+            gameViewModel.Player.Wallet -=gameViewModel.Player.BetAmount;
 
             gameViewModel.Deck.CreateDeck();
             gameViewModel.Deck.ShuffleDeck(500);
@@ -103,7 +104,7 @@ namespace BlackJackMvc.Controllers
 
         public IActionResult Continue(int betInput)
         {
-            
+
             gameViewModel.Player.BetAmount = betInput;
             gameViewModel.Player.Wallet -= gameViewModel.Player.BetAmount;
             gameViewModel.Player.Hand.Clear();

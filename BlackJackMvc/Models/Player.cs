@@ -73,56 +73,56 @@ namespace BlackJackMvc.Models
         
 
         //This method will add 1-- dollars to the users wallet and allow them to input a bet as long as it is 100 or less
-        public void StartingBet()
-        {
+        //public void StartingBet()
+        //{
 
-            bool success = false;
+        //    bool success = false;
 
-            while (success == false)
-            {
+        //    while (success == false)
+        //    {
 
-                int num = 0;
-                string input = Console.ReadLine();
-                success = Int32.TryParse(input, out num);
+        //        int num = 0;
+        //        string input = Console.ReadLine();
+        //        success = Int32.TryParse(input, out num);
 
-                if (success == true)
-                {
-                    BetAmount = Int32.Parse(input);
+        //        if (success == true)
+        //        {
+        //            BetAmount = Int32.Parse(input);
 
-                    if (BetAmount > Wallet)
-                    {
-                        Console.SetCursorPosition(0, 3);
-                        Console.WriteLine($"ERROR: You tried to bet {BetAmount} when your wallet has {Wallet}");
-                        success = false;
+        //            if (BetAmount > Wallet)
+        //            {
+        //                Console.SetCursorPosition(0, 3);
+        //                Console.WriteLine($"ERROR: You tried to bet {BetAmount} when your wallet has {Wallet}");
+        //                success = false;
 
-                    }
-                    if (BetAmount <= Wallet && success == true)
-                        break;
-                    else
-                        success = false;
-                }
-                else
-                {
-                    Console.SetCursorPosition(0, 3);
-                    Console.WriteLine("Enter a proper bet and press Enter                                                   ");
-                }
+        //            }
+        //            if (BetAmount <= Wallet && success == true)
+        //                break;
+        //            else
+        //                success = false;
+        //        }
+        //        else
+        //        {
+        //            Console.SetCursorPosition(0, 3);
+        //            Console.WriteLine("Enter a proper bet and press Enter                                                   ");
+        //        }
                     
-            }
-            Wallet -= BetAmount;
+        //    }
+        //    Wallet -= BetAmount;
 
                
             
-        }
+        //}
 
         //This method will update the amount of money in the players wallet depending on if they won or not
-        public void UpdateWallet()
-        {
-            if (HasWon == true)
-            {
-                Wallet += BetAmount * 2;
-            }
+        //public void UpdateWallet()
+        //{
+        //    if (HasWon == true)
+        //    {
+        //        Wallet += BetAmount * 2;
+        //    }
             
-        }
+        //}
 
 
         
