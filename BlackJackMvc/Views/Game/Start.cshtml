@@ -13,7 +13,7 @@
 
                 @if (Model.PlayerDone == false)
                 {
-                    <div>
+                    <div id="face-down-cards">
                         <img src="https://andrewthamcc.github.io/blackjack2.0/assets/facedown.png" alt="face down card" height="200" width="150" />
                         <img src="https://andrewthamcc.github.io/blackjack2.0/assets/facedown.png" alt="face down card" height="200" width="150" />
                     </div>
@@ -39,6 +39,11 @@
 
 
             <h2 style="color:white; position:relative;top:-50px">@Model.Result</h2>
+            @if(Model.Player.Score == 21)
+            {
+                <h3 style="color:white">Black Jack!</h3>
+            }
+
             @if(Model.Player.Wallet < 5 && Model.PlayerDone == true)
             {
                 <form>
@@ -90,12 +95,12 @@
             }
 
 
-
+            
             <div>
                 <form>
                     @if (Model.PlayerDone == false && Model.Player.Score < 22)
                     {
-                        @if (Model.Player.Score <= 21)
+                        @if (Model.Player.Score < 21)
                         {
                             <button asp-controller="Game" asp-action="Hit" class="btn-hit" type="submit" style="color: white; background: #4800ff; position: relative; left: -350px; top: -200px; border: none; border-radius: 20px; padding: 10px; font-size: 50px">Hit</button>
                         }
