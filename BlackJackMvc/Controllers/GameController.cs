@@ -19,7 +19,7 @@ namespace BlackJackMvc.Controllers
                     
                 },
 
-                Dealer = new Player("The dealer"),
+                Dealer = new Player("The Dealer"),
                 Deck = new Deck()
             };
             gameViewModel.Player.BetAmount = betInput;

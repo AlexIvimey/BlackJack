@@ -63,26 +63,26 @@
                         
                            <label style="font-weight:bold; color:white">Bet 25</label>
                            <button type="button" onclick="betFunction1()" style="background: transparent; border: none">
-                               <img src="~/images/518-5181524_red-poker-chip-png-transparent-png.png" style="height:100px; width:100px; background:none" />
+                               <img id="bet-25-1" src="~/images/518-5181524_red-poker-chip-png-transparent-png.png" style="height:100px; width:100px; background:none" />
                            </button>
                         
                         @if (Model.Player.Wallet > 49)
                         {
                             <label style="font-weight:bold; color:white">Bet 50</label>
                             <button type="button" onclick="betFunction2()" style="background: transparent; border: none">
-                                <img src="~/images/107588.png" style="height:100px; width:100px" />
+                                <img id="bet-50-1" src="~/images/107588.png" style="height:100px; width:100px" />
                             </button>
                         }
                         @if (Model.Player.Wallet > 99)
                         {
                             <label style="font-weight:bold; color:white">Bet 100</label>
                             <button type="button" onclick="betFunction3()" style="background: transparent; border: none">
-                                <img src="~/images/1254315.png" style="height:100px; width:100px" />
+                                <img id="bet-100-1" src="~/images/1254315.png" style="height:100px; width:100px" />
                             </button>
                         }
 
-                        <button asp-controller="Game" asp-action="Continue" style="color: white; background: #4800ff; border: none; border-radius: 20px; padding: 5px; border-block-color: black" type="submit">Continue</button>
-                        <button asp-controller="Home" asp-action="Index" style="color: white; background: #0026ff; border: none; border-radius: 20px; padding: 5px; border-block-color: black; margin-top:10px" type="submit" formnovalidate>Return To Start</button>
+                        <button asp-controller="Game" asp-action="Continue" id="continue"style="color: white; background: #4800ff; border: none; border-radius: 20px; padding: 5px; border-block-color: black" type="submit">Continue</button>
+                        <button asp-controller="Home" asp-action="Index" id="return-home"style="color: white; background: #0026ff; border: none; border-radius: 20px; padding: 5px; border-block-color: black; margin-top:10px" type="submit" formnovalidate>Return To Start</button>
 
                     </form>
 
@@ -123,36 +123,33 @@
 
                             <label for="bet-box1" style="font-weight:bold; color:white">Bet 25</label>
                             <button type="button" onclick="betFunction1()" style="background: transparent; border: none">
-                                <img src="~/images/518-5181524_red-poker-chip-png-transparent-png.png" style="height:100px; width:100px" />
+                                <img id="bet-25-2" src="~/images/518-5181524_red-poker-chip-png-transparent-png.png" style="height:100px; width:100px" />
                             </button>
 
                             @if (Model.Player.Wallet > 49)
                             {
                                 <label for="bet-box2" style="font-weight:bold; color:white">Bet 50</label>
                                 <button type="button" onclick="betFunction2()" style="background: transparent; border: none">
-                                    <img src="~/images/107588.png" style="height:100px; width:100px" />
+                                    <img id="bet-50-2" src="~/images/107588.png" style="height:100px; width:100px" />
                                 </button>
                             }
                             @if (Model.Player.Wallet > 99)
                             {
                                 <label for="bet-box3" style="font-weight:bold; color:white">Bet 100</label>
                                 <button type="button" onclick="betFunction3()" style="background: transparent; border: none">
-                                    <img src="~/images/1254315.png" style="height:100px; width:100px" />
+                                    <img id="bet-100-2" src="~/images/1254315.png" style="height:100px; width:100px" />
                                 </button>
                             }
 
 
 
-                            <button asp-controller="Game" asp-action="Continue" style="color: black; background: white; border: none; border-radius: 20px; padding: 5px; border-block-color: black;">Continue</button>
+                            <button asp-controller="Game" asp-action="Continue" type="submit" class="bust-continue" style="color: black; background: white; border: none; border-radius: 20px; padding: 5px; border-block-color: black;">Continue</button>
                         }
 
                         @if (Model.Player.Wallet < 25)
                         {
                             <h3 style="color:white">No money left, Return Home</h3>
                         }
-
-
-
 
                     </form>
 
@@ -171,6 +168,26 @@
         background-image: url('https://media.istockphoto.com/vectors/poker-table-background-in-green-color-vector-id1218355494?k=20&m=1218355494&s=612x612&w=0&h=7izk2bQU_LDnKLLLbwAolAo4kwUmcwr_mo8_Vr7955w=');
         background-size: cover;
         width:100%;
+    }
+    #bet-25-1:hover{
+        padding:5px;
+    }
+    #bet-50-1:hover{
+        padding:5px;
+    }
+    #bet-100-1:hover{
+        padding:5px;
+    }
+    #bet-25-2:hover {
+        padding: 5px;
+    }
+
+    #bet-50-2:hover {
+        padding: 5px;
+    }
+
+    #bet-100-2:hover {
+        padding: 5px;
     }
     
 </style>
