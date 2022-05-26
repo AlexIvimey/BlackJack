@@ -10,7 +10,7 @@ namespace BlackJackMvc.Models
         public string Name { get; set; }
         public List<Card> Hand = new();
         public int Score { get; set; }
-        public int Wallet { get; set; } = 100;
+        public int Wallet { get; set; }
         public int BetAmount { get; set; }
         public bool HasWon { get; set; }
         

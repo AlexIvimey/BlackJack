@@ -7,7 +7,7 @@ namespace BlackJackMvc.Controllers
     public class GameController : Controller
     {
         private static GameViewModel gameViewModel;
-        public IActionResult Start(string nameInput, int betInput)
+        public IActionResult Start(string nameInput, int betInput, int depositInput)
         {
 
 
@@ -15,7 +15,7 @@ namespace BlackJackMvc.Controllers
             {
                 Player = new Player(nameInput)
                 {
-
+                    Wallet = depositInput
                     
                 },
 
