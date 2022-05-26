@@ -2,7 +2,8 @@
 
     <partial name="_CurrentWallet" />
 
-    <div class="body-div myTest">
+
+    <div id="body-div">
         <center>
             <div>
                 <h2 style="position:relative;top:-50px; color:white">@Model.Player.Name vs @Model.Dealer.Name</h2>
@@ -166,7 +167,9 @@
 
         </center>
     </div>
-    
+    <div>
+        <button onclick="darkMode()" style="border:none; border-radius: 20px; padding:5px; color:black; background-color:white">Dark Mode</button>
+    </div>
 
 <style>
     body{
@@ -194,6 +197,12 @@
     #bet-100-2:hover {
         padding: 5px;
     }
+    .dark-mode {
+        background-color: black;
+        color: white;
+        background-image:none;
+    }
+    
     
 </style>
 
@@ -208,4 +217,13 @@
     function betFunction3() {
         document.getElementById("bet-box2").value = "100";
     }
+    function darkMode() {
+        var element = document.body;
+        
+        
+        element.classList.toggle("dark-mode");
+        
+    }
+
+    
 </script>
