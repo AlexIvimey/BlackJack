@@ -6,9 +6,12 @@
     
 
     <div >
-        <form >
-            <label for="deposit-box" style="color:white;">Enter Deposit Here</label>
-            <input type="number" min="25" id="deposit-box" name="depositInput" style="margin-bottom: 20px" required />
+        <form>
+            <div>
+                <label for="deposit-box" style="color:white">Enter Deposit Here</label>
+                <input type="number" min="25" id="deposit-box" name="depositInput" style="margin-bottom: 20px" max="200" required />
+            </div>
+            
 
             <strong><input type="text" id="bet-box" name="betInput" hidden required/></strong>
 
