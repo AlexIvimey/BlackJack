@@ -9,24 +9,22 @@
                 <h2 style="position:relative;top:-50px; color:white">@Model.Player.Name vs @Model.Dealer.Name</h2>
             </div>
 
-            <div style="margin-bottom:100px">
+            <div style="margin-bottom:100px; ">
+
+                <div id="dealer-hand" style="display:flex;justify-content:center">
+                    <partial name="_ShowDealer" />
+                    @if (Model.PlayerDone == false)
+                    {
+
+                        <img src="https://andrewthamcc.github.io/blackjack2.0/assets/facedown.png" alt="face down card" height="200" width="150" style="margin-left:5px;"/>
 
 
-                @if (Model.PlayerDone == false)
-                {
-                    <div id="face-down-cards">
-                        <img src="https://andrewthamcc.github.io/blackjack2.0/assets/facedown.png" alt="face down card" height="200" width="150" />
-                        <img src="https://andrewthamcc.github.io/blackjack2.0/assets/facedown.png" alt="face down card" height="200" width="150" />
-                    </div>
 
-                }
+                    }
 
-                @if (Model.PlayerDone == true)
-                {
-                    <div id="showDealer">
-                        <partial name="_ShowDealer" />
-                    </div>
-                }
+
+                </div> 
+                
 
                 @if (Model.PlayerDone)
                 {

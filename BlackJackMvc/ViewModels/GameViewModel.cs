@@ -14,7 +14,6 @@ namespace BlackJackMvc.ViewModels
         public Deck Deck { get; set; }
         public bool PlayerDone { get; set; }
         public string Result { get; set; }
-
-
+        public Card FirstCard { get; set; }
     }
 }
