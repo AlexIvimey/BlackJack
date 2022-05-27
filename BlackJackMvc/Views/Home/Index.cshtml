@@ -2,38 +2,39 @@
 @{
     ViewData["Title"] = "Black Jack";
 }
-<div class="allButFooter">
+
     
 
-    <div >
-        <form>
-            <div style="display:flex; justify-content:flex-start; margin-bottom:50px">
-                <label for="deposit-box" style="color:white">Enter Deposit Here</label>
-                <input type="number" min="25" id="deposit-box" name="depositInput" max="200" step="25" required />
-            </div>
-            
+<div id="main">
+    <form>
+        <center>
+        <div style="margin-bottom:40px">
+            <label for="deposit-box" style="color:white">Enter Deposit Here</label>
+            <input type="number" min="25" id="deposit-box" name="depositInput" max="200" step="25" required />
+        </div>
+        </center>
 
-            <strong><input type="text" id="bet-box" name="betInput" hidden required/></strong>
+        <strong><input type="text" id="bet-box" name="betInput" hidden required /></strong>
 
-            <label style="font-weight:bold; color:white">Bet 25</label>
-            <input type="image" src="~/images/518-5181524_red-poker-chip-png-transparent-png.png" style="height:100px; width:100px" onclick="betFunction1()" required/>
-            <label style="font-weight:bold; color:white">Bet 50</label>
-            <input type="image" src="~/images/107588.png" style="height:100px; width:100px" onclick="betFunction2()" required/>
-            <label style="font-weight:bold; color:white">Bet 100</label>
-            <input type="image" src="~/images/1254315.png" style="height:100px; width:100px" onclick="betFunction3()" required/>
+        <label style="font-weight:bold; color:white">Bet 25</label>
+        <input type="image" src="~/images/518-5181524_red-poker-chip-png-transparent-png.png" style="height:100px; width:100px" onclick="betFunction1()" required />
+        <label style="font-weight:bold; color:white">Bet 50</label>
+        <input type="image" src="~/images/107588.png" style="height:100px; width:100px" onclick="betFunction2()" required />
+        <label style="font-weight:bold; color:white">Bet 100</label>
+        <input type="image" src="~/images/1254315.png" style="height:100px; width:100px" onclick="betFunction3()" required />
 
 
-            <center>
-                <label for="name-box" style="font-weight:bold; color:white">Enter your name:</label>
-                <strong><input type="text" id="name-box" name="nameInput" required/></strong>
-            </center>
 
-            <center>
-                <button asp-controller="Game" asp-action="Start" class="btn-primary" style="font-size: 20px; height: 50px; width: 200px; margin-top: 20px; border: none; border-radius: 20px; padding: 5px; border-block-color: black">Start Game</button>
-            </center>
+        <center>
+            <label for="name-box" style="font-weight:bold; color:white">Enter your name:</label>
+            <strong><input type="text" id="name-box" name="nameInput" required /></strong>
+        </center>
 
-        </form>
-    </div>
+        <center>
+            <button asp-controller="Game" asp-action="Start" class="btn-primary" style="font-size: 20px; height: 50px; width: 200px; margin-top: 20px; border: none; border-radius: 20px; padding: 5px; border-block-color: black">Start Game</button>
+        </center>
+
+    </form>
 </div>
 
 
@@ -53,15 +54,8 @@
 <style>
     body {
         background-image: url('https://wallpaperaccess.com/full/2434392.png');
-        
-    }   
-    form{
-        position:relative;
-        top:200px;
-        height:200px;
-        width:200px;
-        right:-200px;
-        
+        height:100%;
+        width:100%;
     }
     input:hover{
         padding:5px;
@@ -73,6 +67,14 @@
     }
     #name-box:hover{
         padding:0px;
+    }
+    #main{
+        height: 100%;
+        width: 200px;
+        display:flex;
+        justify-content:flex-start;
+        margin-left:100px;
+        margin-top:400px;
     }
     
 </style>
